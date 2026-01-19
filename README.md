@@ -74,10 +74,6 @@ src/
 - **GET** `/api/notifications/{id}`
 - **Response:** `200 OK` with notification details or `404 Not Found`
 
-### Health Check
-- **GET** `/api/notifications/health`
-- **Response:** `200 OK` with health status message
-
 ### Actuator Endpoints
 - **GET** `/actuator/health` - Application health information
 - **GET** `/actuator/info` - Application information

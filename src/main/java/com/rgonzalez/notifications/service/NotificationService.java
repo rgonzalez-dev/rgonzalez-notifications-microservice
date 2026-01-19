@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -33,18 +32,11 @@ public class NotificationService {
                 .createdAt(LocalDateTime.now())
                 .build();
 
-        // Simulate sending notification
-        try {
-            // In a real application, this would integrate with email/SMS/push notification services
-            Thread.sleep(100);
-            notification.setStatus(NotificationStatus.SENT);
-            notification.setSentAt(LocalDateTime.now());
-            log.info("Notification sent successfully: {}", notification.getId());
-        } catch (InterruptedException e) {
-            log.error("Failed to send notification", e);
-            notification.setStatus(NotificationStatus.FAILED);
-            Thread.currentThread().interrupt();
-        }
+        // In a real application, this would integrate with email/SMS/push notification services
+        // For now, we simulate a successful send immediately
+        notification.setStatus(NotificationStatus.SENT);
+        notification.setSentAt(LocalDateTime.now());
+        log.info("Notification sent successfully: {}", notification.getId());
 
         notificationStore.put(notification.getId(), notification);
         return mapToResponse(notification);

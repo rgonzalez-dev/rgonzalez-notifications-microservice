@@ -75,10 +75,4 @@ class NotificationControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-    @Test
-    void shouldReturnHealthStatus() throws Exception {
-        mockMvc.perform(get("/api/notifications/health"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Notifications service is running"));
-    }
 }

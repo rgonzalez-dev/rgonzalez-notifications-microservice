@@ -43,8 +43,4 @@ public class NotificationController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/health")
-    public ResponseEntity<String> health() {
-        return ResponseEntity.ok("Notifications service is running");
-    }
 }
