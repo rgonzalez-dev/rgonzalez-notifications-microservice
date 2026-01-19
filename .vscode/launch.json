@@ -3,19 +3,19 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch NotificationsMicroserviceApplication",
+            "name": "Launch Notifications Microservice",
             "request": "launch",
-            "mainClass": "com.rgonzalez.notifications.NotificationsMicroserviceApplication",
+            "mainClass": "rgonzalez.notification.Microservice",
             "projectName": "notifications-microservice",
             "args": "",
             "console": "internalConsole"
         },
         {
             "type": "java",
-            "name": "Spring Boot-NotificationsMicroserviceApplication",
+            "name": "Spring Boot-Notifications Microservice",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.rgonzalez.notifications.NotificationsMicroserviceApplication",
+            "mainClass": "rgonzalez.notification.Microservice",
             "projectName": "notifications-microservice",
             "args": "",
             "envFile": "${workspaceFolder}/.env"

@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NotificationsMicroserviceApplication {
+public class Microservice {
 
     public static void main(String[] args) {
-        SpringApplication.run(NotificationsMicroserviceApplication.class, args);
+        SpringApplication.run(Microservice.class, args);
     }
 }
