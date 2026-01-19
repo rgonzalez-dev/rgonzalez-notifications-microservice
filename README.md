@@ -77,7 +77,8 @@ src/
 ### Actuator Endpoints
 - **GET** `/actuator/health` - Application health information
 - **GET** `/actuator/info` - Application information
-- **GET** `/actuator/metrics` - Application metrics
+
+**Note:** Other actuator endpoints are disabled for security. Health details are only shown to authorized users.
 
 ## Notification Types
 
