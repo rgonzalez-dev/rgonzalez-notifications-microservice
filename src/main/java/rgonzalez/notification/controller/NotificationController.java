@@ -1,8 +1,8 @@
-package com.rgonzalez.notifications.controller;
+package rgonzalez.notification.controller;
 
-import com.rgonzalez.notifications.dto.NotificationRequest;
-import com.rgonzalez.notifications.dto.NotificationResponse;
-import com.rgonzalez.notifications.service.NotificationService;
+import rgonzalez.notification.dto.NotificationRequest;
+import rgonzalez.notification.dto.NotificationResponse;
+import rgonzalez.notification.service.NotificationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

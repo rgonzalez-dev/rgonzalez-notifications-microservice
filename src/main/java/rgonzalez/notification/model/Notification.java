@@ -1,7 +1,5 @@
-package com.rgonzalez.notifications.dto;
+package rgonzalez.notification.model;
 
-import com.rgonzalez.notifications.model.NotificationStatus;
-import com.rgonzalez.notifications.model.NotificationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NotificationResponse {
+public class Notification {
     private String id;
     private String recipient;
     private String subject;

@@ -1,4 +1,4 @@
-package com.rgonzalez.notifications.model;
+package rgonzalez.notification.model;
 
 public enum NotificationType {
     EMAIL,

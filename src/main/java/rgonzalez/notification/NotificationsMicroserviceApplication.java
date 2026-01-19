@@ -1,4 +1,4 @@
-package com.rgonzalez.notifications;
+package rgonzalez.notification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

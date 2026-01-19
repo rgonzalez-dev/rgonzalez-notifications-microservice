@@ -1,9 +1,9 @@
-package com.rgonzalez.notifications.service;
+package rgonzalez.notification.service;
 
-import com.rgonzalez.notifications.dto.NotificationRequest;
-import com.rgonzalez.notifications.dto.NotificationResponse;
-import com.rgonzalez.notifications.model.Notification;
-import com.rgonzalez.notifications.model.NotificationStatus;
+import rgonzalez.notification.dto.NotificationRequest;
+import rgonzalez.notification.dto.NotificationResponse;
+import rgonzalez.notification.model.Notification;
+import rgonzalez.notification.model.NotificationStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class NotificationService {
 
     public NotificationResponse sendNotification(NotificationRequest request) {
         log.info("Sending notification to: {}", request.getRecipient());
-        
+
         Notification notification = Notification.builder()
                 .id(UUID.randomUUID().toString())
                 .recipient(request.getRecipient())
@@ -32,7 +32,8 @@ public class NotificationService {
                 .createdAt(LocalDateTime.now())
                 .build();
 
-        // In a real application, this would integrate with email/SMS/push notification services
+        // In a real application, this would integrate with email/SMS/push notification
+        // services
         // For now, we simulate a successful send immediately
         notification.setStatus(NotificationStatus.SENT);
         notification.setSentAt(LocalDateTime.now());

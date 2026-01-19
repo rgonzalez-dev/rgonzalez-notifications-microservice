@@ -1,15 +1,17 @@
-package com.rgonzalez.notifications.controller;
+package rgonzalez.notification.controller;
 
-import com.rgonzalez.notifications.dto.NotificationRequest;
-import com.rgonzalez.notifications.dto.NotificationResponse;
-import com.rgonzalez.notifications.model.NotificationType;
-import com.rgonzalez.notifications.service.NotificationService;
+import rgonzalez.notification.dto.NotificationRequest;
+import rgonzalez.notification.dto.NotificationResponse;
+import rgonzalez.notification.model.NotificationType;
+import rgonzalez.notification.service.NotificationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Optional;
 
@@ -18,14 +20,21 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(NotificationController.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class NotificationControllerTest {
 
     @Autowired
+    private WebApplicationContext webApplicationContext;
+
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private NotificationService notificationService;
+
+    @org.junit.jupiter.api.BeforeEach
+    void setUp() {
+        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+    }
 
     @Test
     void shouldSendNotification() throws Exception {
@@ -42,7 +51,8 @@ class NotificationControllerTest {
 
         mockMvc.perform(post("/api/notifications")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"recipient\":\"test@example.com\",\"subject\":\"Test Subject\",\"message\":\"Test Message\",\"type\":\"EMAIL\"}"))
+                .content(
+                        "{\"recipient\":\"test@example.com\",\"subject\":\"Test Subject\",\"message\":\"Test Message\",\"type\":\"EMAIL\"}"))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value("test-id"))
                 .andExpect(jsonPath("$.recipient").value("test@example.com"));
