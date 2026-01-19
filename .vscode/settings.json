@@ -1,0 +1,18 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.server.launchMode": "Standard",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.format.settings.url": null,
+    "java.format.settings.profile": null,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/target": true
+    },
+    "java.saveActions.organizeImports": true,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": true
+    },
+    "spring-boot.ls.problem.application-properties.PROP_UNKNOWN_PROPERTY": "WARNING"
+}
